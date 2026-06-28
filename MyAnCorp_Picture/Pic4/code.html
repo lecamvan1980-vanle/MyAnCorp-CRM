@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Danh Sách Khách Hàng | Myan Corp CRM</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#6f757c",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#bec8ce",
+                        "tertiary-fixed-dim": "#c1c7cf",
+                        "surface-container-highest": "#e0e3e6",
+                        "outline": "#6e797e",
+                        "surface-variant": "#e0e3e6",
+                        "on-surface": "#191c1e",
+                        "primary-fixed": "#bce9ff",
+                        "surface-dim": "#d8dadd",
+                        "tertiary": "#565d63",
+                        "on-surface-variant": "#3e484d",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#001f2a",
+                        "secondary-container": "#d5e0f7",
+                        "on-tertiary-container": "#fcfcff",
+                        "on-secondary-container": "#586377",
+                        "on-primary-fixed-variant": "#004d64",
+                        "surface-container-low": "#f2f4f7",
+                        "background": "#f7f9fc",
+                        "on-secondary-fixed": "#111c2c",
+                        "on-tertiary-fixed": "#161c22",
+                        "primary": "#0084A8", /* User specified Primary */
+                        "inverse-on-surface": "#eff1f4",
+                        "secondary": "#545f72",
+                        "primary-container": "#007ea1",
+                        "inverse-surface": "#2d3133",
+                        "surface-bright": "#f7f9fc",
+                        "on-tertiary-fixed-variant": "#41474e",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#eceef1",
+                        "primary-fixed-dim": "#74d2f9",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e6e8eb",
+                        "secondary-fixed": "#d8e3fa",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#006783",
+                        "on-secondary-fixed-variant": "#3c475a",
+                        "error-container": "#ffdad6",
+                        "on-background": "#191c1e",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#bcc7dd",
+                        "inverse-primary": "#74d2f9",
+                        "on-primary-container": "#fbfdff",
+                        "tertiary-fixed": "#dde3eb",
+                        "surface": "#f7f9fc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "card-gap": "20px",
+                        "container-padding": "24px",
+                        "stack-sm": "8px",
+                        "unit": "4px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "display-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f5f7fa; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .data-table-row:hover { background-color: #f8fafc; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    </style>
+</head>
+<body class="text-on-surface selection:bg-primary-fixed">
+<!-- SIDEBAR -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-on-secondary-fixed shadow-md flex flex-col z-50">
+<div class="px-6 py-8">
+<h1 class="text-display-md font-display-md text-primary-fixed">Myan Corp</h1>
+<p class="text-label-md font-label-md text-primary-fixed-dim opacity-70">Medical CRM</p>
+</div>
+<nav class="flex-1 space-y-1 px-2">
+<a class="flex items-center text-on-secondary-container hover:text-primary-fixed-dim px-4 py-3 transition-all duration-200 ease-in-out hover:bg-on-secondary-fixed-variant group" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center text-primary-fixed-dim border-l-4 border-primary-fixed-dim bg-on-secondary-fixed-variant px-4 py-3 transition-all duration-200 ease-in-out group" href="#">
+<span class="material-symbols-outlined mr-3">groups</span>
+<span class="font-label-md text-label-md">Khách hàng</span>
+</a>
+<a class="flex items-center text-on-secondary-container hover:text-primary-fixed-dim px-4 py-3 transition-all duration-200 ease-in-out hover:bg-on-secondary-fixed-variant group" href="#">
+<span class="material-symbols-outlined mr-3">inventory_2</span>
+<span class="font-label-md text-label-md">Inventory</span>
+</a>
+<a class="flex items-center text-on-secondary-container hover:text-primary-fixed-dim px-4 py-3 transition-all duration-200 ease-in-out hover:bg-on-secondary-fixed-variant group" href="#">
+<span class="material-symbols-outlined mr-3">handshake</span>
+<span class="font-label-md text-label-md">Opportunities</span>
+</a>
+<a class="flex items-center text-on-secondary-container hover:text-primary-fixed-dim px-4 py-3 transition-all duration-200 ease-in-out hover:bg-on-secondary-fixed-variant group" href="#">
+<span class="material-symbols-outlined mr-3">task_alt</span>
+<span class="font-label-md text-label-md">Tasks</span>
+</a>
+</nav>
+<div class="p-4 border-t border-on-secondary-fixed-variant">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary-fixed flex items-center justify-center text-primary font-bold">
+<img class="w-full h-full object-cover" data-alt="A professional medical corporate executive portrait, studio lighting, clean background, high resolution, minimalist aesthetic matching a corporate CRM interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJWUNLTdprVKJjrT1Gj_41b-2yYBPniOFDi8GNOpOkuDSUDs7tQmUEYi54xnF28LhzPaVdssz-6AXdbqnpJD8WUtWjBeH15BZdk6Xgkmg0MjLlXqSRB-DHYqTnDhN54oIULfN_LXlixjQ32YDx4fXKX_kQUY7qyI6U9146raQdAvPY6uH6eprPMlSy9H5pXy1bLh4Q9ct0WCi10ggIDUR-2zhe2KK1xBWi-xFQ9Y9aj12orE_2BKGqb2DqJWvkPFd3-PlsJ6qKJOE"/>
+</div>
+<div class="flex flex-col">
+<span class="text-label-md font-label-md text-white">Quản trị viên</span>
+<span class="text-[10px] text-primary-fixed-dim">myan.admin@corp.vn</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- MAIN WRAPPER -->
+<main class="ml-64 min-h-screen flex flex-col">
+<!-- TOP NAV BAR -->
+<header class="flex justify-between items-center h-16 px-container-padding sticky top-0 bg-surface-container-lowest border-b border-outline-variant z-40">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-lg pl-10 pr-4 py-2 text-body-md focus:ring-2 focus:ring-primary/20" placeholder="Tìm kiếm hệ thống..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4 ml-6">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors cursor-pointer relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant mx-2"></div>
+<div class="flex items-center gap-2 cursor-pointer group">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A small circular profile icon of a smiling professional woman in business casual attire, light background, minimalist style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAfV8OFfUZxox69srrpeY-uhCI-M8NcarELrtP-JB5Rye-mIXpI1kSrtW_lp8At9dRsDxZ8LXsIc4t8yArmq7UraRmnxf2Uj0xRyCTuSLG2Gnh2-byfgDffsWUHyakFCV6BQ19rEuIfuqGcNKEDpoVuyO0d5Z9sq_9JXoxGTUrKz4o_KIxP5eA_E3aUMDhReP1qYtRwHtAuuViLggYK-5OtO0vPqWVbx4ivnYlcVBQoxpSfCnMyNYflu_BcmwqWtSLGDHGwb4tqNI"/>
+<span class="font-label-md text-label-md text-on-surface-variant group-hover:text-primary">Minh Anh</span>
+</div>
+</div>
+</header>
+<!-- CONTENT AREA -->
+<div class="p-container-padding space-y-6">
+<!-- HEADER SECTION -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h2 class="text-display-md font-display-md text-on-surface">Khách hàng</h2>
+<p class="text-body-md text-on-surface-variant">Quản lý và theo dõi thông tin đối tác y tế</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 border border-outline text-on-surface-variant px-4 py-2 rounded-lg hover:bg-surface-container-high transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">upload</span>
+                        Upload CSV
+                    </button>
+<button class="flex items-center gap-2 border border-outline text-on-surface-variant px-4 py-2 rounded-lg hover:bg-surface-container-high transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                        Xuất CSV
+                    </button>
+<button class="flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-lg hover:opacity-90 transition-all shadow-sm font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                        Thêm khách hàng
+                    </button>
+</div>
+</div>
+<!-- FILTER BAR -->
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-[0px_2px_4px_rgba(0,0,0,0.05)] border border-outline-variant flex flex-wrap items-center gap-4">
+<div class="flex-1 min-w-[240px] relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-lg text-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none" placeholder="Tìm tên khách hàng..." type="text"/>
+</div>
+<select class="min-w-[140px] px-3 py-2 bg-white border border-outline-variant rounded-lg text-body-md text-on-surface-variant focus:border-primary focus:ring-1 focus:ring-primary">
+<option>Phân khúc</option>
+<option>Đại lý</option>
+<option>VIP</option>
+<option>Tiềm năng</option>
+</select>
+<select class="min-w-[180px] px-3 py-2 bg-white border border-outline-variant rounded-lg text-body-md text-on-surface-variant focus:border-primary focus:ring-1 focus:ring-primary">
+<option>Sản phẩm quan tâm</option>
+<option>Xe lăn</option>
+<option>Vớ y khoa</option>
+<option>Máy đo huyết áp</option>
+</select>
+<select class="min-w-[160px] px-3 py-2 bg-white border border-outline-variant rounded-lg text-body-md text-on-surface-variant focus:border-primary focus:ring-1 focus:ring-primary">
+<option>Người phụ trách</option>
+<option>Trần Văn A</option>
+<option>Lê Thị B</option>
+</select>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+<!-- DATA TABLE CARD -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_2px_4px_rgba(0,0,0,0.05)] border border-outline-variant overflow-hidden">
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low border-b border-outline-variant">
+<tr>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant">Tên khách hàng / Công ty</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant">Phân khúc</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant">Sản phẩm quan tâm</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant">Người phụ trách</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant">Giá trị ước tính</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant text-center">Trạng thái</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant text-right">Hành động</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="data-table-row transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-label-md text-body-lg text-on-surface font-semibold">Bệnh viện Chợ Rẫy</span>
+<span class="text-label-sm text-on-surface-variant">Số 201B Nguyễn Chí Thanh, P.12, Q.5</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-[#F0FDF4] text-[#166534] text-[11px] font-bold rounded-full uppercase tracking-wider border border-[#DCFCE7]">VIP</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-wrap gap-1">
+<span class="px-2 py-0.5 bg-surface-container-high text-on-surface-variant text-label-sm rounded-lg border border-outline-variant">Xe lăn</span>
+<span class="px-2 py-0.5 bg-surface-container-high text-on-surface-variant text-label-sm rounded-lg border border-outline-variant">Vớ y khoa</span>
+</div>
+</td>
+<td class="px-6 py-4 text-body-md text-on-surface">Lê Hoàng Nam</td>
+<td class="px-6 py-4 font-label-md text-body-md text-primary">150.000.000 đ</td>
+<td class="px-6 py-4 text-center">
+<span class="inline-flex items-center gap-1.5 text-label-sm text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-[#10b981]"></span> Đang theo dõi
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="data-table-row transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-label-md text-body-lg text-on-surface font-semibold">Công ty TNHH Y Tế Medic</span>
+<span class="text-label-sm text-on-surface-variant">Phòng khám đa khoa kỹ thuật cao</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-[#FEFCE8] text-[#854d0e] text-[11px] font-bold rounded-full uppercase tracking-wider border border-[#FEF9C3]">Đại lý</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-wrap gap-1">
+<span class="px-2 py-0.5 bg-surface-container-high text-on-surface-variant text-label-sm rounded-lg border border-outline-variant">Máy đo huyết áp</span>
+</div>
+</td>
+<td class="px-6 py-4 text-body-md text-on-surface">Trần Thị Thu Thủy</td>
+<td class="px-6 py-4 font-label-md text-body-md text-primary">45.000.000 đ</td>
+<td class="px-6 py-4 text-center">
+<span class="inline-flex items-center gap-1.5 text-label-sm text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-[#f59e0b]"></span> Chờ phản hồi
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="data-table-row transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-label-md text-body-lg text-on-surface font-semibold">Phòng mạch Bác sĩ Nguyễn Văn K</span>
+<span class="text-label-sm text-on-surface-variant">Hộ kinh doanh cá thể</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant text-[11px] font-bold rounded-full uppercase tracking-wider border border-outline-variant">Thường</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-wrap gap-1">
+<span class="px-2 py-0.5 bg-surface-container-high text-on-surface-variant text-label-sm rounded-lg border border-outline-variant">Ống nghe</span>
+<span class="px-2 py-0.5 bg-surface-container-high text-on-surface-variant text-label-sm rounded-lg border border-outline-variant">Vớ y khoa</span>
+</div>
+</td>
+<td class="px-6 py-4 text-body-md text-on-surface">Lê Hoàng Nam</td>
+<td class="px-6 py-4 font-label-md text-body-md text-primary">12.500.000 đ</td>
+<td class="px-6 py-4 text-center">
+<span class="inline-flex items-center gap-1.5 text-label-sm text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-[#ef4444]"></span> Ngừng liên lạc
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- PAGINATION -->
+<div class="px-6 py-4 bg-surface-container-low border-t border-outline-variant flex items-center justify-between">
+<span class="text-label-sm text-on-surface-variant">Hiển thị 1 - 10 trong tổng số 124 khách hàng</span>
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-primary text-white text-label-md font-bold">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant hover:bg-white text-on-surface-variant text-label-md">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant hover:bg-white text-on-surface-variant text-label-md">3</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- SUMMARY STATS (Bento-style snippet) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-card-gap">
+<div class="bg-white p-6 rounded-xl border border-outline-variant shadow-[0px_2px_4px_rgba(0,0,0,0.05)]">
+<div class="flex items-center gap-4">
+<div class="p-3 bg-primary/10 text-primary rounded-lg">
+<span class="material-symbols-outlined">person_add</span>
+</div>
+<div>
+<p class="text-label-sm text-on-surface-variant">Khách hàng mới tháng này</p>
+<h4 class="text-headline-sm font-display-md text-on-surface">+24 <span class="text-label-sm text-green-600 font-normal ml-2">↑ 12%</span></h4>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-outline-variant shadow-[0px_2px_4px_rgba(0,0,0,0.05)]">
+<div class="flex items-center gap-4">
+<div class="p-3 bg-secondary-container/30 text-secondary rounded-lg">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div>
+<p class="text-label-sm text-on-surface-variant">Tổng giá trị dự kiến</p>
+<h4 class="text-headline-sm font-display-md text-on-surface">1.280.000.000 đ</h4>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-outline-variant shadow-[0px_2px_4px_rgba(0,0,0,0.05)]">
+<div class="flex items-center gap-4">
+<div class="p-3 bg-tertiary-container/10 text-tertiary rounded-lg">
+<span class="material-symbols-outlined">star</span>
+</div>
+<div>
+<p class="text-label-sm text-on-surface-variant">Khách hàng VIP</p>
+<h4 class="text-headline-sm font-display-md text-on-surface">18</h4>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Simple row selection toggle
+        document.querySelectorAll('.data-table-row').forEach(row => {
+            row.addEventListener('click', () => {
+                row.classList.toggle('bg-primary/5');
+            });
+        });
+
+        // Search highlight mock
+        const searchInput = document.querySelector('input[placeholder="Tìm tên khách hàng..."]');
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            document.querySelectorAll('.data-table-row').forEach(row => {
+                const text = row.innerText.toLowerCase();
+                row.style.display = text.includes(query) ? '' : 'none';
+            });
+        });
+    </script>
+</body></html>

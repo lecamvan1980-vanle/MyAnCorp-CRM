@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Opportunities | Myan Corp Medical CRM</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        
+        /* Custom Scrollbar for Kanban */
+        .kanban-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        .kanban-container::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .kanban-container::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .kanban-container::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        .kanban-column {
+            min-width: 320px;
+            max-width: 320px;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#41474e",
+                        "surface-container-highest": "#e0e3e6",
+                        "primary-fixed-dim": "#74d2f9",
+                        "inverse-primary": "#74d2f9",
+                        "tertiary-container": "#6f757c",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#d5e0f7",
+                        "on-primary-fixed-variant": "#004d64",
+                        "on-surface": "#191c1e",
+                        "surface-container-high": "#e6e8eb",
+                        "primary": "#006480",
+                        "surface": "#f7f9fc",
+                        "on-primary-container": "#fbfdff",
+                        "surface-container": "#eceef1",
+                        "on-secondary-container": "#586377",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#bce9ff",
+                        "secondary": "#545f72",
+                        "outline-variant": "#bec8ce",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#007ea1",
+                        "background": "#f7f9fc",
+                        "tertiary-fixed-dim": "#c1c7cf",
+                        "surface-bright": "#f7f9fc",
+                        "surface-variant": "#e0e3e6",
+                        "on-background": "#191c1e",
+                        "on-tertiary-fixed": "#161c22",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#fcfcff",
+                        "secondary-fixed-dim": "#bcc7dd",
+                        "on-primary-fixed": "#001f2a",
+                        "tertiary-fixed": "#dde3eb",
+                        "secondary-fixed": "#d8e3fa",
+                        "outline": "#6e797e",
+                        "on-secondary-fixed": "#111c2c",
+                        "on-surface-variant": "#3e484d",
+                        "surface-tint": "#006783",
+                        "surface-container-low": "#f2f4f7",
+                        "surface-dim": "#d8dadd",
+                        "on-secondary-fixed-variant": "#3c475a",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#eff1f4",
+                        "tertiary": "#565d63",
+                        "inverse-surface": "#2d3133",
+                        "myan-blue": "#0084A8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "card-gap": "20px",
+                        "stack-sm": "8px",
+                        "container-padding": "24px",
+                        "stack-md": "16px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "display-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "display-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "display-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-md": ["13px", {"lineHeight": "18px", "fontWeight": "600"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- Side Navigation Bar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-on-secondary-fixed shadow-md flex flex-col z-50 transition-all duration-200 ease-in-out">
+<div class="p-6">
+<h1 class="text-display-md font-display-md text-primary-fixed mb-1">Myan Corp</h1>
+<p class="text-label-sm text-on-secondary-container opacity-60">Medical CRM</p>
+</div>
+<nav class="flex-1 mt-4">
+<a class="flex items-center text-on-secondary-container hover:text-primary-fixed-dim px-6 py-3 hover:bg-on-secondary-fixed-variant transition-colors group" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center text-on-secondary-container hover:text-primary-fixed-dim px-6 py-3 hover:bg-on-secondary-fixed-variant transition-colors group" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="medical_services">medical_services</span>
+<span class="font-label-md text-label-md">Equipment</span>
+</a>
+<a class="flex items-center text-on-secondary-container hover:text-primary-fixed-dim px-6 py-3 hover:bg-on-secondary-fixed-variant transition-colors group" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-md text-label-md">Inventory</span>
+</a>
+<a class="flex items-center text-primary-fixed-dim border-l-4 border-primary-fixed-dim bg-on-secondary-fixed-variant px-6 py-3" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="handshake" style="font-variation-settings: 'FILL' 1;">handshake</span>
+<span class="font-label-md text-label-md">Opportunities</span>
+</a>
+<a class="flex items-center text-on-secondary-container hover:text-primary-fixed-dim px-6 py-3 hover:bg-on-secondary-fixed-variant transition-colors group" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="task_alt">task_alt</span>
+<span class="font-label-md text-label-md">Tasks</span>
+</a>
+</nav>
+<div class="p-6 mt-auto">
+<div class="bg-on-secondary-fixed-variant rounded-xl p-4 flex items-center gap-3">
+<img class="w-10 h-10 rounded-full bg-surface-container" data-alt="User Avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUeR1LJtx45QGr5eiS1qldz4X8LQS4npXfPCMCeuXRvddcQQzZY3NqMVC5rOuTgJ8DSvtwlu2DJ62ZOlt6tC-_48apXa85GV2Qou8XmSsjCtHztsQfIsCIzPEN300vqTEajleHS91DOQQcQmoCgUg3WYbidUgBOXOosD27FtauyLuPtxGzD3HrIrp0eUz5KB3MxreiflqLKCxi8kfr3faBLhypdLU4f8PpozWDxFPAd8M4nP9SXs1WRRf1mwRclVUVhdaPDfNX80M"/>
+<div class="overflow-hidden">
+<p class="text-on-primary-container font-label-md truncate">Dr. Nguyen Minh</p>
+<p class="text-label-sm text-on-secondary-container opacity-70">Quản trị viên</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Top Navigation Bar -->
+<header class="flex justify-between items-center h-16 px-gutter ml-64 w-[calc(100%-16rem)] docked full-width top-0 sticky bg-surface-container-lowest border-b border-outline-variant z-40">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary/20 text-body-md" placeholder="Tìm kiếm cơ hội, khách hàng..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors relative cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-px bg-outline-variant mx-2"></div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md flex items-center gap-2 hover:bg-primary-container transition-all active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+                Tạo mới
+            </button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 p-container-padding min-h-[calc(100vh-64px)] bg-surface">
+<!-- Header & Statistics -->
+<div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h2 class="font-display-lg text-display-lg text-on-surface mb-2">Cơ hội bán hàng</h2>
+<nav class="flex gap-2 text-label-sm text-on-surface-variant">
+<span>CRM</span>
+<span>/</span>
+<span class="text-primary font-bold">Quản lý cơ hội</span>
+</nav>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container-lowest px-6 py-3 rounded-xl border border-outline-variant shadow-sm flex items-center gap-4">
+<div class="w-10 h-10 bg-primary-fixed rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="monetization_on">monetization_on</span>
+</div>
+<div>
+<p class="text-label-sm text-on-surface-variant">Tổng giá trị</p>
+<p class="font-display-md text-display-md">4.2B <span class="text-label-sm">VND</span></p>
+</div>
+</div>
+<div class="bg-surface-container-lowest px-6 py-3 rounded-xl border border-outline-variant shadow-sm flex items-center gap-4">
+<div class="w-10 h-10 bg-secondary-fixed rounded-full flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+</div>
+<div>
+<p class="text-label-sm text-on-surface-variant">Tỷ lệ chốt</p>
+<p class="font-display-md text-display-md">68%</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Filters Section -->
+<div class="flex flex-wrap items-center gap-4 mb-8 bg-surface-container-lowest p-4 rounded-xl border border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="text-label-sm text-on-surface-variant font-bold">Lọc theo:</span>
+</div>
+<select class="border-outline-variant rounded-lg text-body-md py-1.5 focus:ring-myan-blue">
+<option>Tất cả thiết bị</option>
+<option>Máy X-Ray</option>
+<option>Máy siêu âm</option>
+<option>Thiết bị xét nghiệm</option>
+</select>
+<select class="border-outline-variant rounded-lg text-body-md py-1.5 focus:ring-myan-blue">
+<option>Quý này</option>
+<option>Tháng này</option>
+<option>Năm nay</option>
+</select>
+<div class="ml-auto flex items-center gap-2">
+<button class="p-2 rounded-lg border border-outline-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="grid_view">grid_view</span>
+</button>
+<button class="p-2 rounded-lg border border-outline-variant bg-primary-fixed text-primary">
+<span class="material-symbols-outlined" data-icon="view_kanban">view_kanban</span>
+</button>
+</div>
+</div>
+<!-- Kanban Board Container -->
+<div class="kanban-container overflow-x-auto pb-8">
+<div class="flex gap-6 min-w-max h-[calc(100vh-340px)]">
+<!-- Mới (New) -->
+<div class="kanban-column flex flex-col gap-4">
+<div class="flex items-center justify-between px-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-blue-500"></span>
+<h3 class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Mới</h3>
+<span class="px-2 py-0.5 bg-surface-container-highest rounded text-label-sm">4</span>
+</div>
+<button class="text-outline hover:text-primary"><span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span></button>
+</div>
+<div class="flex-1 flex flex-col gap-4 overflow-y-auto pr-2">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant shadow-sm hover:shadow-md hover:border-primary transition-all cursor-grab active:cursor-grabbing group">
+<div class="flex justify-between items-start mb-3">
+<span class="px-2 py-1 bg-blue-50 text-blue-700 rounded text-[10px] font-bold uppercase tracking-tighter">Bệnh viện TW</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="open_in_new">open_in_new</span>
+</div>
+<h4 class="font-label-md text-on-surface mb-2">Hệ thống chụp X-Quang Kỹ thuật số</h4>
+<p class="text-label-sm text-on-surface-variant mb-4">BV Đa khoa Quốc tế Vinmec</p>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/30">
+<div class="flex -space-x-2">
+<img class="w-6 h-6 rounded-full border-2 border-surface-container-lowest" data-alt="Team Member" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANf9ZbVv0BPxYRm0unNmzpVtOzI0hBpf4-_ggnVo8Zyut3KVOgNtTy-o7siPeNcM-uy6AyAJGIDF9p5Szew8OG5w7ErkxUMagdt6jYxYi26DEUn-_6uEm6GNWwPf_KLHRGprtJ7ydS8U_m5bt4X8CsEzhxMJd7qbBGtxrIaRS_gtIfZ-P2cuF45l4iwLLwqFZT3P-zscGfFn6rOU4iSsVUeBoP8SvuiHhrBZdXu9T3LfbAdOuQ6c1yX3jxfhPzFmlGmZmLHYUhY68"/>
+<img class="w-6 h-6 rounded-full border-2 border-surface-container-lowest" data-alt="Team Member" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgWgzns7_dDRjHsvTUaYroh6w9C-l0JMF427YH7VE9_e1xjfpj0JM5nUt-0Mx8BjAvdrZNGWS-2t-TekBYFsLm--qQjgeuFjUsMt3DH91Er9wXiSSQ87IDjwvn6c3M_Lg9mbnPEkX4ApbekSbcPuNcZxNXGfoGM_k89-CwXJf8vNIM99uBGN10mp-wryuk-U-Q8K_2DrOwdW8aLG3EYQMlq3u7aMOloL6KxztKN7R_cxya5rcNzoF_NEYDzXBykMN1zl2jofWUJ8I"/>
+</div>
+<div class="text-right">
+<p class="text-label-sm font-bold text-primary">850.0M</p>
+<p class="text-[10px] text-outline">Cập nhật 2 giờ trước</p>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-all cursor-grab">
+<div class="flex justify-between items-start mb-3">
+<span class="px-2 py-1 bg-purple-50 text-purple-700 rounded text-[10px] font-bold uppercase">Phòng khám</span>
+</div>
+<h4 class="font-label-md text-on-surface mb-2">Máy Siêu âm 4D Voluson E10</h4>
+<p class="text-label-sm text-on-surface-variant mb-4">Phòng khám Sản Nhi Happy Care</p>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/30">
+<span class="text-label-sm text-error flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[16px]" data-icon="priority_high">priority_high</span> Khẩn cấp
+                                </span>
+<p class="text-label-sm font-bold text-primary">420.0M</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Đang tư vấn (In Progress) -->
+<div class="kanban-column flex flex-col gap-4">
+<div class="flex items-center justify-between px-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+<h3 class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Đang tư vấn</h3>
+<span class="px-2 py-0.5 bg-surface-container-highest rounded text-label-sm">2</span>
+</div>
+<button class="text-outline hover:text-primary"><span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span></button>
+</div>
+<div class="flex-1 flex flex-col gap-4 overflow-y-auto pr-2">
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-all cursor-grab">
+<div class="flex justify-between items-start mb-3">
+<span class="px-2 py-1 bg-blue-50 text-blue-700 rounded text-[10px] font-bold uppercase">Bệnh viện TW</span>
+</div>
+<h4 class="font-label-md text-on-surface mb-2">Gói thiết bị Xét nghiệm Hóa sinh</h4>
+<p class="text-label-sm text-on-surface-variant mb-4">Bệnh viện Bạch Mai</p>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/30">
+<div class="flex items-center gap-2 text-outline">
+<span class="material-symbols-outlined text-[18px]" data-icon="chat_bubble">chat_bubble</span>
+<span class="text-label-sm">12</span>
+</div>
+<p class="text-label-sm font-bold text-primary">1.2B</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Báo giá (Quoted) -->
+<div class="kanban-column flex flex-col gap-4">
+<div class="flex items-center justify-between px-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-cyan-500"></span>
+<h3 class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Báo giá</h3>
+<span class="px-2 py-0.5 bg-surface-container-highest rounded text-label-sm">3</span>
+</div>
+<button class="text-outline hover:text-primary"><span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span></button>
+</div>
+<div class="flex-1 flex flex-col gap-4 overflow-y-auto pr-2">
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-all cursor-grab">
+<div class="flex justify-between items-start mb-3">
+<span class="px-2 py-1 bg-green-50 text-green-700 rounded text-[10px] font-bold uppercase">Ưu tiên cao</span>
+</div>
+<h4 class="font-label-md text-on-surface mb-2">Hệ thống cộng hưởng từ MRI 1.5T</h4>
+<p class="text-label-sm text-on-surface-variant mb-4">Bệnh viện Đa khoa Tâm Anh</p>
+<div class="bg-surface-container-low p-2 rounded-lg mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="description">description</span>
+<span class="text-[11px] text-on-surface-variant">Bao_gia_MRI_v2.pdf</span>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/30">
+<span class="text-[11px] text-outline italic">Hết hạn sau 3 ngày</span>
+<p class="text-label-sm font-bold text-primary">2.1B</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Thương thảo (Negotiation) -->
+<div class="kanban-column flex flex-col gap-4">
+<div class="flex items-center justify-between px-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+<h3 class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Thương thảo</h3>
+<span class="px-2 py-0.5 bg-surface-container-highest rounded text-label-sm">1</span>
+</div>
+<button class="text-outline hover:text-primary"><span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span></button>
+</div>
+<div class="flex-1 flex flex-col gap-4 overflow-y-auto pr-2">
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant shadow-sm border-l-4 border-l-indigo-500">
+<h4 class="font-label-md text-on-surface mb-2">Cung cấp máy Monitor theo dõi BN</h4>
+<p class="text-label-sm text-on-surface-variant mb-4">Trung tâm Y tế Quận 1</p>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/30">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-indigo-500" data-icon="history">history</span>
+<span class="text-[11px]">Vòng đàm phán 3</span>
+</div>
+<p class="text-label-sm font-bold text-primary">350.0M</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Chốt (Won) -->
+<div class="kanban-column flex flex-col gap-4">
+<div class="flex items-center justify-between px-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<h3 class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Chốt thành công</h3>
+<span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded text-label-sm">8</span>
+</div>
+<button class="text-outline hover:text-primary"><span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span></button>
+</div>
+<div class="flex-1 flex flex-col gap-4 overflow-y-auto pr-2">
+<div class="bg-emerald-50/30 p-4 rounded-xl border border-emerald-100 shadow-sm opacity-80 grayscale-[0.3]">
+<div class="flex justify-between items-start mb-3">
+<span class="px-2 py-1 bg-emerald-100 text-emerald-700 rounded text-[10px] font-bold uppercase">Hoàn tất</span>
+<span class="material-symbols-outlined text-emerald-600" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<h4 class="font-label-md text-on-surface mb-1">Máy đo loãng xương tia X</h4>
+<p class="text-label-sm text-on-surface-variant">BV Chợ Rẫy</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button - Mobile/Quick Access -->
+<button class="md:hidden fixed bottom-6 right-6 w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center z-50 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[32px]" data-icon="add">add</span>
+</button>
+<script>
+        // Simple Interaction: Toggle active state for nav items
+        const navLinks = document.querySelectorAll('aside nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                if(link.classList.contains('active')) return;
+                
+                navLinks.forEach(l => {
+                    l.className = "flex items-center text-on-secondary-container hover:text-primary-fixed-dim px-6 py-3 hover:bg-on-secondary-fixed-variant transition-colors group";
+                    const icon = l.querySelector('.material-symbols-outlined');
+                    if (icon) icon.style.fontVariationSettings = "'FILL' 0";
+                });
+                
+                link.className = "flex items-center text-primary-fixed-dim border-l-4 border-primary-fixed-dim bg-on-secondary-fixed-variant px-6 py-3";
+                const activeIcon = link.querySelector('.material-symbols-outlined');
+                if (activeIcon) activeIcon.style.fontVariationSettings = "'FILL' 1";
+            });
+        });
+
+        // Hover effect for Kanban cards
+        const cards = document.querySelectorAll('.kanban-column .bg-surface-container-lowest');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-2px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>
